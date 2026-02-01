@@ -38,8 +38,8 @@
 
 ## 4. 模板命名
 
-- txt2img.json
-- img2video.json
+- text-to-image.json
+- image-to-video.json
 - video-to-video.json
 - reference-image.json
 - frame-interpolation.json

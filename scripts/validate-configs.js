@@ -4,7 +4,7 @@ const path = require('path');
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
 const schemaPath = path.join(__dirname, '..', 'configs', 'parameters.schema.json');
-const workflowDir = path.join(__dirname, '..', 'workflows', 'templates');
+const workflowDir = path.join(__dirname, '..', 'configs', 'workflows');
 
 const schema = readJson(schemaPath);
 let success = true;

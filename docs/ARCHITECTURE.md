@@ -38,7 +38,7 @@
 - 描述每种任务的参数、类型、默认值、范围
 
 ### 2) 工作流模板
-- 存放于 `workflows/templates/*.json`
+- 存放于 `configs/workflows/*.json`
 - 以占位符字段表示动态参数
 - 由模板引擎替换为实际值
 
