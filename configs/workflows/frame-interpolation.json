@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "name": "Frame Interpolation",
+    "version": "1.0",
+    "requires": ["frame_interpolation"]
+  },
+  "nodes": {
+    "1": {
+      "class_type": "LoadVideo",
+      "inputs": {
+        "video": "${video_path}"
+      }
+    },
+    "2": {
+      "class_type": "RIFEInterpolation",
+      "inputs": {
+        "video": ["1", 0],
+        "target_fps": "${target_fps}",
+        "interpolation_factor": "${interpolation_factor}"
+      }
+    },
+    "3": {
+      "class_type": "SaveVideo",
+      "inputs": {
+        "filename_prefix": "${output_prefix}",
+        "video": ["2", 0]
+      }
+    }
+  }
+}

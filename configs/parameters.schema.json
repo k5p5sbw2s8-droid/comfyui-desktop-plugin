@@ -1,0 +1,80 @@
+{
+  "text-to-image": {
+    "label": "文生图",
+    "fields": {
+      "prompt": {"type": "string", "default": ""},
+      "negative_prompt": {"type": "string", "default": ""},
+      "seed": {"type": "number", "default": 0},
+      "seed_locked": {"type": "boolean", "default": false},
+      "width": {"type": "number", "default": 512},
+      "height": {"type": "number", "default": 512},
+      "steps": {"type": "number", "default": 20},
+      "cfg": {"type": "number", "default": 7},
+      "sampler": {"type": "string", "default": "euler"},
+      "batch": {"type": "number", "default": 1},
+      "checkpoint": {"type": "string", "default": ""},
+      "vae": {"type": "string", "default": ""},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  },
+  "image-to-video": {
+    "label": "图生视频",
+    "fields": {
+      "image_path": {"type": "string", "default": ""},
+      "prompt": {"type": "string", "default": ""},
+      "negative_prompt": {"type": "string", "default": ""},
+      "seed": {"type": "number", "default": 0},
+      "fps": {"type": "number", "default": 12},
+      "frames": {"type": "number", "default": 48},
+      "motion_strength": {"type": "number", "default": 0.6},
+      "video_model": {"type": "string", "default": ""},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  },
+  "video-to-video": {
+    "label": "视频生视频",
+    "fields": {
+      "video_path": {"type": "string", "default": ""},
+      "prompt": {"type": "string", "default": ""},
+      "negative_prompt": {"type": "string", "default": ""},
+      "seed": {"type": "number", "default": 0},
+      "denoise": {"type": "number", "default": 0.5},
+      "fps": {"type": "number", "default": 12},
+      "frames": {"type": "number", "default": 48},
+      "video_model": {"type": "string", "default": ""},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  },
+  "reference-image": {
+    "label": "参考图一致性",
+    "fields": {
+      "image_path": {"type": "string", "default": ""},
+      "prompt": {"type": "string", "default": ""},
+      "negative_prompt": {"type": "string", "default": ""},
+      "seed": {"type": "number", "default": 0},
+      "weight": {"type": "number", "default": 0.8},
+      "ip_adapter_model": {"type": "string", "default": ""},
+      "checkpoint": {"type": "string", "default": ""},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  },
+  "frame-interpolation": {
+    "label": "补帧",
+    "fields": {
+      "video_path": {"type": "string", "default": ""},
+      "target_fps": {"type": "number", "default": 24},
+      "interpolation_factor": {"type": "number", "default": 2},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  },
+  "image-upscale": {
+    "label": "图片增强/超分",
+    "fields": {
+      "image_path": {"type": "string", "default": ""},
+      "scale": {"type": "number", "default": 2},
+      "restore_faces": {"type": "boolean", "default": false},
+      "upscale_model": {"type": "string", "default": ""},
+      "output_prefix": {"type": "string", "default": "outputs/${task}/${timestamp}"}
+    }
+  }
+}
