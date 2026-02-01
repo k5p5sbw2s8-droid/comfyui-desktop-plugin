@@ -47,47 +47,12 @@ scripts/
 
 ---
 
-## 使用方式（可运行桌面应用）
+## 使用方式（当前阶段）
 
-### 1) 安装依赖
-
-```bash
-npm install
-```
-
-### 2) 启动桌面应用
-
-```bash
-npm start
-```
-
-### 3) 运行流程
-
-1. 在应用右上角填写 ComfyUI Host/Port 并点击「连接」。
-2. 左侧选择任务类型并填写参数。
-3. 点击「生成并提交」，应用会用模板生成 workflow JSON 并提交到队列。
-4. 中间面板展示队列与日志，右侧展示结果 JSON（可据此定位输出）。
-5. 确保本地 ComfyUI 已启动并允许 HTTP/WS 访问。
-
-### 4) 打包 Windows 安装包（NSIS）
-
-```bash
-npm run dist
-```
-
-> 产物位于 `dist/` 目录。你可以在 Windows 11 机器上直接运行安装包。
-
-### 5) Windows 一键脚本
-
-```powershell
-./scripts/start-ui.ps1
-```
-
-```powershell
-./scripts/build-win.ps1
-```
-
-> 详细说明见 `docs/WINDOWS_QUICKSTART.md`。
+1. 根据 `docs/ARCHITECTURE.md` 搭建桌面应用项目骨架。
+2. 读取 `configs/parameters.schema.json` 生成 UI 表单与默认参数。
+3. 根据 `configs/workflows/*.json` 做模板填充 → 生成最终 ComfyUI workflow JSON。
+4. 连接本地 ComfyUI（HTTP + WS），提交任务并回传进度。
 
 ---
 
