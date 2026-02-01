@@ -1,0 +1,51 @@
+{
+  "base": {
+    "label": "基础采样",
+    "nodes": [
+      "CheckpointLoaderSimple",
+      "CLIPTextEncode",
+      "KSampler",
+      "VAEDecode",
+      "EmptyLatentImage",
+      "SaveImage"
+    ],
+    "models": ["checkpoint", "vae"],
+    "install": "官方 ComfyUI 内置节点"
+  },
+  "controlnet": {
+    "label": "ControlNet",
+    "nodes": ["ControlNetLoader", "ApplyControlNet"],
+    "models": ["controlnet"],
+    "install": "custom_nodes/ComfyUI-ControlNet 或同等实现"
+  },
+  "reference": {
+    "label": "Reference / IP-Adapter",
+    "nodes": ["IPAdapterModelLoader", "IPAdapterApply"],
+    "models": ["ip-adapter"],
+    "install": "custom_nodes/ComfyUI_IPAdapter_plus 或同类方案"
+  },
+  "upscale_restore": {
+    "label": "Upscale / Restore",
+    "nodes": ["UpscaleModelLoader", "ImageUpscaleWithModel", "FaceRestore"],
+    "models": ["upscale", "face-restore"],
+    "install": "ComfyUI-Impact-Pack / GFPGAN / CodeFormer 等"
+  },
+  "video_i2v": {
+    "label": "Image-to-Video",
+    "nodes": ["LoadImage", "VideoModelLoader", "ImageToVideo"],
+    "models": ["video"],
+    "install": "根据所选视频节点生态（如 ComfyUI-VideoHelperSuite）"
+  },
+  "video_v2v": {
+    "label": "Video-to-Video",
+    "nodes": ["LoadVideo", "VideoModelLoader", "VideoToVideo"],
+    "models": ["video"],
+    "install": "根据所选视频节点生态（如 ComfyUI-VideoHelperSuite）"
+  },
+  "frame_interpolation": {
+    "label": "Frame Interpolation",
+    "nodes": ["LoadVideo", "RIFEInterpolation", "SaveVideo"],
+    "models": ["rife"],
+    "install": "custom_nodes/ComfyUI-Frame-Interpolation 或等效实现"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "name": "Video-to-Video",
+    "version": "1.0",
+    "requires": ["video_v2v"]
+  },
+  "nodes": {
+    "1": {
+      "class_type": "LoadVideo",
+      "inputs": {
+        "video": "${video_path}"
+      }
+    },
+    "2": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "${prompt}",
+        "clip": ["4", 1]
+      }
+    },
+    "3": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "${negative_prompt}",
+        "clip": ["4", 1]
+      }
+    },
+    "4": {
+      "class_type": "VideoModelLoader",
+      "inputs": {
+        "model_name": "${video_model}"
+      }
+    },
+    "5": {
+      "class_type": "VideoToVideo",
+      "inputs": {
+        "video": ["1", 0],
+        "positive": ["2", 0],
+        "negative": ["3", 0],
+        "model": ["4", 0],
+        "seed": "${seed}",
+        "denoise": "${denoise}",
+        "fps": "${fps}",
+        "frames": "${frames}"
+      }
+    },
+    "6": {
+      "class_type": "SaveVideo",
+      "inputs": {
+        "filename_prefix": "${output_prefix}",
+        "video": ["5", 0]
+      }
+    }
+  }
+}

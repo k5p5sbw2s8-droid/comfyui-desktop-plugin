@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ComfyUI Desktop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>ComfyUI Desktop</h1>
+      <div class="connection">
+        <label>
+          Host
+          <input id="host" value="127.0.0.1" />
+        </label>
+        <label>
+          Port
+          <input id="port" value="8188" />
+        </label>
+        <button id="connect">连接</button>
+        <button id="disconnect" class="secondary">断开</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" id="task-panel">
+        <h2>任务与参数</h2>
+        <label>
+          任务类型
+          <select id="taskType"></select>
+        </label>
+        <div id="form"></div>
+        <button id="run" class="primary">生成并提交</button>
+      </section>
+
+      <section class="panel" id="queue-panel">
+        <h2>任务队列</h2>
+        <div id="queue"></div>
+        <button id="interrupt" class="secondary">中断当前任务</button>
+        <div class="logs">
+          <h3>日志</h3>
+          <pre id="log"></pre>
+        </div>
+      </section>
+
+      <section class="panel" id="result-panel">
+        <h2>结果预览</h2>
+        <div id="results"></div>
+        <button id="open-output" class="secondary">打开输出目录</button>
+        <div class="abilities">
+          <h3>能力清单</h3>
+          <ul id="abilities"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
